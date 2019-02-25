@@ -1,17 +1,21 @@
 package com.help;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Controller
 public class UsersCtrl {
 
-    @GetMapping("profiles")
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
+
+
+
+    @GetMapping("/profile")
     @ResponseBody
     public String showProfile(){
         return "profile page placeholder";
@@ -28,10 +32,10 @@ public class UsersCtrl {
     @ResponseBody
     public List<String> showListOfUsers(){
         List<String> users = new ArrayList<>();
-        return users;
         users.add("Fer");
         users.add("Ryan");
         users.add("Sophie");
+        return users;
     }
 
     @GetMapping("/forgotPassword")
