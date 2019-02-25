@@ -21,9 +21,9 @@ public class UsersCtrl {
         return "profile page placeholder";
     }
 
-    @PostMapping("/profile")
+    @PostMapping("/profile/{username}")
     @ResponseBody
-    public String getProfileInfo(@RequestAttribute String username){
+    public String getProfileInfo(@PathVariable String username){
         System.out.println("username = " + username);
         return "profile page submission placeholder " + username;
     }
@@ -39,6 +39,7 @@ public class UsersCtrl {
     }
 
     @GetMapping("/forgotPassword")
+    @ResponseBody
     public String forgotPassword(){
         return "forgotPassword page placeholder";
     }
